@@ -372,8 +372,10 @@ angular.module('PokedexApp', ['ngRoute'])
 			return string;
 		}
 	};
-	var url ="http://pokeapi.co/api/v1/pokedex/1/";
+	var url ="https://pokeapi.co/api/v1/pokedex/1/";
 	$http.get(url).success(function(data){
+	  console.log(data);
+
 		$scope.allpokemon = data.pokemon.map(function(pokemon) {
 			pokemon.number = parseInt(pokemon.resource_uri.slice(15, -1));
 			if(pokemon.name.indexOf("-") >= 0) {
@@ -429,8 +431,8 @@ angular.module('PokedexApp', ['ngRoute'])
 		}
 	};
 	$scope.dexnum = $routeParams.dexnum;
-	$scope.root = "http://pokeapi.co";
-	var url = "http://pokeapi.co/api/v1/pokemon/" + $scope.dexnum + "/";
+	$scope.root = "https://pokeapi.co";
+	var url = "https://pokeapi.co/api/v1/pokemon/" + $scope.dexnum + "/";
 	$http.get(url).success(function(data) {
 		$scope.pokemon = data;
 		$scope.pokemon.movesByLevel = [];
@@ -567,7 +569,7 @@ angular.module('PokedexApp', ['ngRoute'])
 		if(speciesData === null || speciesData === false) {
 			return;
 		}
-		$http.get('http://pokeapi.co/' + speciesData.resource_uri).success(function(data) {
+		$http.get('https://pokeapi.co/' + speciesData.resource_uri).success(function(data) {
 			$scope.currentPKMN.species = speciesData.name;
 			$scope.pokemonSearch = speciesData.name;
 			$scope.currentPKMN.sprite = 'img/sprites/' + data.national_id + '.png';
@@ -621,7 +623,7 @@ angular.module('PokedexApp', ['ngRoute'])
 		}
 	}
 	$scope.initialize = function() {
-		$http.get('http://pokeapi.co/api/v1/pokedex/1/').success(function(data) {
+		$http.get('https://pokeapi.co/api/v1/pokedex/1/').success(function(data) {
 			$scope.pokedex = data.pokemon;
 		}).error(function(err) {
 			console.log(err)
