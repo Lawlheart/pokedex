@@ -372,15 +372,18 @@ angular.module('PokedexApp', ['ngRoute'])
 			return string;
 		}
 	};
-	var url ="https://pokeapi.co/api/v1/pokedex/1/";
+	var url ="https://pokeapi.co/api/v2/pokedex/1/";
 	$http.get(url).success(function(data){
 	  console.log(data);
 
-		$scope.allpokemon = data.pokemon.map(function(pokemon) {
-			pokemon.number = parseInt(pokemon.resource_uri.slice(15, -1));
-			if(pokemon.name.indexOf("-") >= 0) {
-				pokemon.name = pokemon.name.slice(0, pokemon.name.indexOf("-"));
-			}
+		$scope.allpokemon = data.pokemon_entries.map(function(pokemon) {
+			console.log(pokemon);
+			pokemon.number = pokemon.entry_number
+			// V1 implementation, broken with v2
+       			// pokemon.number = parseInt(pokemon.resource_uri.slice(15, -1));
+			// if(pokemon.name.indexOf("-") >= 0) {
+			// 	pokemon.name = pokemon.name.slice(0, pokemon.name.indexOf("-"));
+			// }
 			return pokemon;
 		}).sort(function(a, b) {
 			return a.number - b.number;
@@ -432,7 +435,7 @@ angular.module('PokedexApp', ['ngRoute'])
 	};
 	$scope.dexnum = $routeParams.dexnum;
 	$scope.root = "https://pokeapi.co";
-	var url = "https://pokeapi.co/api/v1/pokemon/" + $scope.dexnum + "/";
+	var url = "https://pokeapi.co/api/v2/pokemon/" + $scope.dexnum + "/";
 	$http.get(url).success(function(data) {
 		$scope.pokemon = data;
 		$scope.pokemon.movesByLevel = [];
@@ -623,7 +626,7 @@ angular.module('PokedexApp', ['ngRoute'])
 		}
 	}
 	$scope.initialize = function() {
-		$http.get('https://pokeapi.co/api/v1/pokedex/1/').success(function(data) {
+		$http.get('https://pokeapi.co/api/v2/pokedex/1/').success(function(data) {
 			$scope.pokedex = data.pokemon;
 		}).error(function(err) {
 			console.log(err)
