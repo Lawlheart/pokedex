@@ -1,15 +1,15 @@
 # Pokedex
-##### By Brigette Eckert and Kenneth Black
+##### By RJ and Lawliet
 Gottta catch 'em all 
 
 ##### I learned
 
-(Brigette): 
+(RJ): 
 
  - Displaying nested information from an external API in differnet locations (ie pictures for each pokemon on main page out of each pokemons object)
  - Praticed Using Angular JS 
 
-(Kenneth):
+(Lawliet):
 
  - Worked on testing angular factories with Jasmine
  - How to use Bourbon and Sass
@@ -41,37 +41,37 @@ pokemon factory
  - maybe try to migrate all the AJAX requests here
  - HM/TM list
 
-main page - Brigette
+main page 
 
  - complete pokemon list with sprites with a search function that filters in real time (angular)
  - Fliter Pokemon by type, region etc. 
  - Add regional Pokedexes 
  - Multiple pages to increase loading speed.
 
-pokemon page - Brigette
+pokemon page
 
  - moves list, sorted my learn method and level
 		moves, when clicked, bring up a modal with more info from another query to the API
  - image on banner with name, species, abilities
 
-gymleader page - Brigette
+gymleader page
 	
 	-select game from menu
 		-display gym leader name, badge, reward and pokemon
 
-teambuilder page - Kenny
+teambuilder page
 
  - dropdowns for pokemon selection
 		4 dropdowns for move selection (maybe make directive?)
  - elemental analysis tool to find group weaknesses, etc
  - keep back-end in mind as we build, node users will be useful for team building
 
-breeding guide page - Kenny
+breeding guide page
 
  - (load pokedex with a custom key for egg groups and movesets)
  - make an egg group/breeding move calculator to find matches
 
-IV Caluclator Page - Kenny
+IV Caluclator Page
 
  - fix the ng-options or add a seperate ng-modeled input to make it more smooth
  - add a save pokemon feature - localstorage for now.
